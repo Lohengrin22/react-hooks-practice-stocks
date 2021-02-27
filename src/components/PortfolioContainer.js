@@ -1,13 +1,19 @@
 import React from "react";
 import Stock from "./Stock";
 
-function PortfolioContainer() {
+function PortfolioContainer({portfolio, onHandleClick}) {
+  const portfolioArray = portfolio.map((portfolio)=>{
+    return(
+    <Stock 
+    key={portfolio.id}
+    stonk={portfolio}
+    handleClick={onHandleClick}
+    /> )
+  })
   return (
     <div>
       <h2>My Portfolio</h2>
-      {
-        //render your portfolio stocks here
-      }
+      {portfolioArray}
     </div>
   );
 }
